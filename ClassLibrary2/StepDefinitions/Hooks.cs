@@ -18,8 +18,6 @@ namespace BuggyCarsRating.StepDefinitions
     [Binding]
     public class Hooks
     {
-        private const string GeckoDriverDirectory = "@C:/Users/shyam/OneDrive/Desktop/Anuradha/ClassLibrary2/ClassLibrary2/Drivers, geckodriver.exe";
-
         private readonly IObjectContainer objectContainer;
         private readonly FeatureContext featureContext;
         private readonly ScenarioContext scenarioContext;
@@ -30,22 +28,18 @@ namespace BuggyCarsRating.StepDefinitions
             this.scenarioContext = scenarioContext;
         }
 
-        [BeforeFeature]
-        public static void SetupStuffForFeatures(ScenarioContext scenarioContext)
-        {
-            Console.WriteLine("Starting " + scenarioContext.ScenarioInfo.Title);
-        }
-
+    
         [BeforeScenario]
-        public static void BeforeScenario()
+        public void BeforeScenario()
         {
             var appSettings = ConfigurationManager.AppSettings;
             var implicitWait = int.Parse(appSettings["implicitWait"]);
             var Url = appSettings["URL"];
-            IWebDriver driver = new FirefoxDriver(GeckoDriverDirectory);
+            IWebDriver driver = new FirefoxDriver(@"C:\Users\shyam\OneDrive\Desktop\Anuradha\ClassLibrary2\ClassLibrary2\packages");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(implicitWait);
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(Url);
+            objectContainer.RegisterInstanceAs(driver);
         }
 
         [AfterScenario]

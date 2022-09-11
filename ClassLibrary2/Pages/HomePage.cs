@@ -10,7 +10,7 @@ namespace BuggyCarsRating.Pages
 {
     public class HomePage : BasePage
     {
-        public IWebElement RegisterButton => driver.FindElement(By.XPath("//button[@type='submit'][text()='Register']"));
+        public IWebElement Register => driver.FindElement(By.XPath("//a[text()='Register']"));
 
         public IWebElement HeaderLogin => driver.FindElement(By.XPath("//span[contains(text(),'Hi')]"));
         public HomePage(IWebDriver driver) : base(driver)
