@@ -107,13 +107,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("To test the Login fuctionality with valid credentials, Tester", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("To test the Login fuctionality with valid credentials, Anu4", new string[] {
                 "Login",
                 "Valid"}, SourceLine=12)]
-        public void ToTestTheLoginFuctionalityWithValidCredentials_Tester()
+        public void ToTestTheLoginFuctionalityWithValidCredentials_Anu4()
         {
 #line 6
-this.ToTestTheLoginFuctionalityWithValidCredentials("Tester", "Pa@123456", ((string[])(null)));
+this.ToTestTheLoginFuctionalityWithValidCredentials("Anu4", "Test@1234567", ((string[])(null)));
 #line hidden
         }
         
@@ -164,15 +164,19 @@ this.ToTestTheLoginWithInvalidCredentials("Tester", "Test@12345678", ((string[])
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("To test logout with click", new string[] {
-                "Logout",
-                "Valid"}, SourceLine=24)]
-        public void ToTestLogoutWithClick()
+        public virtual void ToTestLogoutWithClick(string userName, string password, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Logout",
                     "Valid"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("UserName", userName);
+            argumentsOfScenario.Add("Password", password);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("To test logout with click", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 25
 this.ScenarioInitialize(scenarioInfo);
@@ -188,13 +192,29 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Given("I\'m on Buggy Cars Rating home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 27
-    testRunner.When("I click on the Logout button.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("I enter User Name \"{0}\" and Password \"{1}\"", userName, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 28
+    testRunner.Then("I should be able to login successfully.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 29
+    testRunner.When("I click on the Logout button.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 30
  testRunner.Then("I should be logged off", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("To test logout with click, Anu4", new string[] {
+                "Logout",
+                "Valid"}, SourceLine=32)]
+        public void ToTestLogoutWithClick_Anu4()
+        {
+#line 25
+this.ToTestLogoutWithClick("Anu4", "Test@1234567", ((string[])(null)));
+#line hidden
         }
     }
 }
