@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace BuggyCarsRating
+namespace BuggyCarsRating.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -19,7 +19,7 @@ namespace BuggyCarsRating
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Registration", SourceFile="Registration.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Registration", SourceFile="Features\\Registration.feature", SourceLine=0)]
     public partial class RegistrationFeature
     {
         
@@ -34,7 +34,7 @@ namespace BuggyCarsRating
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "", "Registration", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Registration", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -148,7 +148,7 @@ this.ScenarioInitialize(scenarioInfo);
         public void RegisterWithDuplicateUserInformation_Variant0()
         {
 #line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Test@1234567", "Test@1234567", "InvalidParameterException", ((string[])(null)));
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Test@1234567", "Test@1234567", "User already exists", ((string[])(null)));
 #line hidden
         }
         
@@ -157,7 +157,7 @@ this.ScenarioInitialize(scenarioInfo);
         public void RegisterWithDuplicateUserInformation_Variant1()
         {
 #line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "Radha4", "Te@11111", "Te@11111", "User already exists", ((string[])(null)));
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Test", "Test", "minimum password length", ((string[])(null)));
 #line hidden
         }
         
@@ -166,7 +166,7 @@ this.ScenarioInitialize(scenarioInfo);
         public void RegisterWithDuplicateUserInformation_Variant2()
         {
 #line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Te@1111", "Te@1111", "minimum password length", ((string[])(null)));
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "11111111", "11111111", "InvalidPasswordException", ((string[])(null)));
 #line hidden
         }
         
@@ -175,22 +175,13 @@ this.ScenarioInitialize(scenarioInfo);
         public void RegisterWithDuplicateUserInformation_Variant3()
         {
 #line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "11111111", "11111111", "InvalidPasswordException", ((string[])(null)));
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "A1111111", "A1111111", "InvalidPasswordException", ((string[])(null)));
 #line hidden
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 4", new string[] {
                 "Negative"}, SourceLine=15)]
         public void RegisterWithDuplicateUserInformation_Variant4()
-        {
-#line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "A1111111", "A1111111", "InvalidPasswordException", ((string[])(null)));
-#line hidden
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 5", new string[] {
-                "Negative"}, SourceLine=15)]
-        public void RegisterWithDuplicateUserInformation_Variant5()
         {
 #line 9
  this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "a1111111", "a1111111", "InvalidPasswordException", ((string[])(null)));

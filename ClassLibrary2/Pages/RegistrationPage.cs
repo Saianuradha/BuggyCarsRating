@@ -1,5 +1,7 @@
 ﻿using ClassLibrary2.BaseClasses;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +20,12 @@ namespace ClassLibrary2.Pages
         public IWebElement ConfirmPasswordField => driver.FindElement(By.Id("confirmPassword"));
         public IWebElement RegisterButton => driver.FindElement(By.XPath("//button[@type='submit'][text()='Register']"));
         public IWebElement RegistrationSuccessMessage => driver.FindElement(By.XPath("//div[contains(text(),'Registration is successful')]"));
-
+        public IWebElement RegistrationFailMessage => driver.FindElement(By.XPath("//div[@class='result alert alert-danger']"));
+   //     public IWebElement RegistrationFailMessage => driver.FindElement(By.XPath("//div[text()[contains(.,'InvalidPasswordException')]]"));
         public RegistrationPage(IWebDriver driver) : base(driver)
         {
         }
-
+       // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
         public void CreateNewUser(string user, string first, string last, string password, string confirmpassword)
         {
@@ -31,7 +34,13 @@ namespace ClassLibrary2.Pages
             LastNameField.SendKeys(last);
             PasswordField.SendKeys(password);
             ConfirmPasswordField.SendKeys(confirmpassword);
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@type='submit'][text()='Register']")));
             RegisterButton.Click();
         }
+        //public void LoginErrorMessage()
+        //{
+        //    return isElementExist(By.xpath("//div[text()[contains(.,'InvalidPasswordException')]]"));
+        //}
     }
 }

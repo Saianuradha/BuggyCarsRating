@@ -43,18 +43,13 @@ namespace ClassLibrary2.StepDefinitions
             Assert.IsTrue(register.RegistrationSuccessMessage.Displayed, "registration message successful shown");
         }
 
-        [Then(@"I use created credentials to log in successfully")]
-        public void ThenIUseCreatedCredentialsToLogInSuccessfully()
+        [Then(@"I use created credentials to log in successfully using (.*), (.*)")]
+        public void ThenIUseCreatedCredentialsToLogInSuccessfully(string login, string password)
         {
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.enterDetails();
+            loginPage.enterDetails(login,password);
             HomePage homePage = new HomePage(driver);
             Assert.IsTrue(homePage.IsHeaderPresent(), "Login was successful.");
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
         }
     }
 }

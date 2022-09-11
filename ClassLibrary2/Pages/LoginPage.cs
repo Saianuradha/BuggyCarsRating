@@ -8,15 +8,23 @@ using System.Threading.Tasks;
 
 namespace BuggyCarsRating.Pages
 {
+   
     public class LoginPage : BasePage
     {
+        public IWebElement UsernameField => driver.FindElement(By.Name("login"));
+        public IWebElement PasswordField => driver.FindElement(By.Name("password"));
+        public IWebElement SubmitButton => driver.FindElement(By.XPath("//button[@type='submit'][text()='Login']"));
+
         public LoginPage(IWebDriver driver) : base(driver)
         {
         }
 
-        internal void enterDetails()
+        public void enterDetails(string user, string password)
         {
-            throw new NotImplementedException();
+            UsernameField.SendKeys(user);
+            PasswordField.SendKeys(password);
+            SubmitButton.Click();
+
         }
     }
 }
