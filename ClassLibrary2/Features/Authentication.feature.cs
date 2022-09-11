@@ -95,7 +95,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
-  testRunner.Given("I\'m on Buggy Cars Rating home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I\'m on Buggy Cars Rating home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
     testRunner.When(string.Format("I enter User Name \"{0}\" and Password \"{1}\"", userName, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -107,13 +107,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("To test the Login fuctionality with valid credentials, Anu4", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("To test the Login fuctionality with valid credentials, Tester", new string[] {
                 "Login",
                 "Valid"}, SourceLine=12)]
-        public void ToTestTheLoginFuctionalityWithValidCredentials_Anu4()
+        public void ToTestTheLoginFuctionalityWithValidCredentials_Tester()
         {
 #line 6
-this.ToTestTheLoginFuctionalityWithValidCredentials("Anu4", "Test@1234567", ((string[])(null)));
+this.ToTestTheLoginFuctionalityWithValidCredentials("Tester", "Pa@123456", ((string[])(null)));
 #line hidden
         }
         
@@ -148,33 +148,33 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.When(string.Format("I enter User Name \"{0}\" and Password \"{1}\"", userName, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 19
-    testRunner.Then("I should be able to login successfully.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("I should not be able to login successfully.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("To test the Login with invalid credentials, Anu4", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("To test the Login with invalid credentials, Tester", new string[] {
                 "Login",
                 "Invalid"}, SourceLine=21)]
-        public void ToTestTheLoginWithInvalidCredentials_Anu4()
+        public void ToTestTheLoginWithInvalidCredentials_Tester()
         {
 #line 16
-this.ToTestTheLoginWithInvalidCredentials("Anu4", "Test@12345678", ((string[])(null)));
+this.ToTestTheLoginWithInvalidCredentials("Tester", "Test@12345678", ((string[])(null)));
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("To test Logout functionality", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("To test logout with click", new string[] {
                 "Logout",
-                "Valid"}, SourceLine=25)]
-        public void ToTestLogoutFunctionality()
+                "Valid"}, SourceLine=24)]
+        public void ToTestLogoutWithClick()
         {
             string[] tagsOfScenario = new string[] {
                     "Logout",
                     "Valid"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("To test Logout functionality", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("To test logout with click", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -184,13 +184,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 26
+    testRunner.Given("I\'m on Buggy Cars Rating home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 27
- testRunner.Given("I am logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.When("I click on the Logout button.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 28
- testRunner.When("I click on the Logout button.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 29
  testRunner.Then("I should be logged off", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

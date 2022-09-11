@@ -10,20 +10,20 @@ Scenario Outline: To test the Login fuctionality with valid credentials
 
     Examples:
       | UserName | Password   | 
-      | Anu4     | Test@1234567 |
+      | Tester     | Pa@123456 |
 	
 @Login @Invalid
 Scenario Outline: To test the Login with invalid credentials
 	Given I'm on Buggy Cars Rating home page
     When I enter User Name "<UserName>" and Password "<Password>"
-    Then I should be able to login successfully.
+    Then I should not be able to login successfully.
 	Examples:
       | UserName | Password   | 
-      | Anu4     | Test@12345678 |
-
-	
+      | Tester     | Test@12345678 |
+      
 @Logout @Valid
-Scenario: To test Logout functionality
-	Given I am logged in
-	When I click on the Logout button.
+Scenario: To test logout with click
+    Given I'm on Buggy Cars Rating home page
+    When I click on the Logout button.
 	Then I should be logged off
+   

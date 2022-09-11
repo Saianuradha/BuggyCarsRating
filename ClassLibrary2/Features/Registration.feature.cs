@@ -19,8 +19,9 @@ namespace BuggyCarsRating.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Registration", SourceFile="Features\\Registration.feature", SourceLine=0)]
-    public partial class RegistrationFeature
+    [TechTalk.SpecRun.FeatureAttribute("Page Registration", Description="As a visitor\r\nI want to be able to register in the website\r\nSo that I can vote fo" +
+        "r a sport car", SourceFile="Features\\Registration.feature", SourceLine=0)]
+    public partial class PageRegistrationFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -34,7 +35,8 @@ namespace BuggyCarsRating.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Registration", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Page Registration", "As a visitor\r\nI want to be able to register in the website\r\nSo that I can vote fo" +
+                    "r a sport car", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -70,16 +72,25 @@ namespace BuggyCarsRating.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("To test the Registarion with valid information", new string[] {
-                "Positive"}, SourceLine=2)]
-        public void ToTestTheRegistarionWithValidInformation()
+        public virtual void RegisterWithValidInformation(string login, string firstName, string lastName, string password, string confirmPassword, string message, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "Positive"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("To test the Registarion with valid information", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 3
-this.ScenarioInitialize(scenarioInfo);
+            argumentsOfScenario.Add("Login", login);
+            argumentsOfScenario.Add("First Name", firstName);
+            argumentsOfScenario.Add("Last Name", lastName);
+            argumentsOfScenario.Add("Password", password);
+            argumentsOfScenario.Add("Confirm Password", confirmPassword);
+            argumentsOfScenario.Add("message", message);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register with Valid information", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 7
+ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -88,18 +99,27 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
- testRunner.Given("I register on the site using Anu4, Anu4, Radha4, Test@1234567, Test@1234567 as in" +
-                        "put", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+    testRunner.Given("I\'m on the Registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 5
- testRunner.When("verify registration is a success", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 9
+    testRunner.When(string.Format("I submit Login \"{0}\", First Name \"{1}\", Last Name \"{2}\", Password \"{3}\" ,Confirm " +
+                            "Password \"{4}\"", login, firstName, lastName, password, confirmPassword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 6
- testRunner.Then("I use created credentials to log in successfully using Anu4, Test@1234567", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 10
+    testRunner.Then(string.Format("I should see Success message \"{0}\"", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Register with Valid information, Tester1", new string[] {
+                "Positive"}, SourceLine=13)]
+        public void RegisterWithValidInformation_Tester1()
+        {
+#line 7
+ this.RegisterWithValidInformation("Tester1", "SaiAnuradha", "Jandhyala", "Pa@123456", "Pa@123456", "Registartion Successful", ((string[])(null)));
+#line hidden
         }
         
         public virtual void RegisterWithDuplicateUserInformation(string login, string firstName, string lastName, string password, string confirmPassword, string message, string[] exampleTags)
@@ -119,7 +139,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Confirm Password", confirmPassword);
             argumentsOfScenario.Add("message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register with duplicate user information", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+#line 17
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -129,14 +149,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
+#line 18
     testRunner.Given("I\'m on the Registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 11
+#line 19
     testRunner.When(string.Format("I submit Login \"{0}\", First Name \"{1}\", Last Name \"{2}\", Password \"{3}\" ,Confirm " +
                             "Password \"{4}\"", login, firstName, lastName, password, confirmPassword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 12
+#line 20
     testRunner.Then(string.Format("I should see an error message \"{0}\"", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -144,46 +164,64 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 0", new string[] {
-                "Negative"}, SourceLine=15)]
+                "Negative"}, SourceLine=23)]
         public void RegisterWithDuplicateUserInformation_Variant0()
         {
-#line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Test@1234567", "Test@1234567", "User already exists", ((string[])(null)));
+#line 17
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Test@1234567", "Test@1234567", "InvalidParameterException", ((string[])(null)));
 #line hidden
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 1", new string[] {
-                "Negative"}, SourceLine=15)]
+                "Negative"}, SourceLine=23)]
         public void RegisterWithDuplicateUserInformation_Variant1()
         {
-#line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Test", "Test", "minimum password length", ((string[])(null)));
+#line 17
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "Radha4", "Te@11111", "Te@11111", "User already exists", ((string[])(null)));
 #line hidden
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 2", new string[] {
-                "Negative"}, SourceLine=15)]
+                "Negative"}, SourceLine=23)]
         public void RegisterWithDuplicateUserInformation_Variant2()
         {
-#line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "11111111", "11111111", "InvalidPasswordException", ((string[])(null)));
+#line 17
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "Radha4", "Te@1111", "Te@2222", "Password Should match", ((string[])(null)));
 #line hidden
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 3", new string[] {
-                "Negative"}, SourceLine=15)]
+                "Negative"}, SourceLine=23)]
         public void RegisterWithDuplicateUserInformation_Variant3()
         {
-#line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "A1111111", "A1111111", "InvalidPasswordException", ((string[])(null)));
+#line 17
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Te@1111", "Te@1111", "minimum password length", ((string[])(null)));
 #line hidden
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 4", new string[] {
-                "Negative"}, SourceLine=15)]
+                "Negative"}, SourceLine=23)]
         public void RegisterWithDuplicateUserInformation_Variant4()
         {
-#line 9
+#line 17
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "11111111", "11111111", "InvalidPasswordException", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 5", new string[] {
+                "Negative"}, SourceLine=23)]
+        public void RegisterWithDuplicateUserInformation_Variant5()
+        {
+#line 17
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "A1111111", "A1111111", "InvalidPasswordException", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 6", new string[] {
+                "Negative"}, SourceLine=23)]
+        public void RegisterWithDuplicateUserInformation_Variant6()
+        {
+#line 17
  this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "a1111111", "a1111111", "InvalidPasswordException", ((string[])(null)));
 #line hidden
         }

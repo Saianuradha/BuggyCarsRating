@@ -30,5 +30,7 @@ namespace BuggyCarsRating.Pages
                 return false;
             }
         }
+
+        
     }
 }

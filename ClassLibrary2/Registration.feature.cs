@@ -166,7 +166,7 @@ this.ScenarioInitialize(scenarioInfo);
         public void RegisterWithDuplicateUserInformation_Variant2()
         {
 #line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Te@1111", "Te@1111", "minimum password length", ((string[])(null)));
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "Radha4", "Te@1111", "Te@2222", "Password Should match", ((string[])(null)));
 #line hidden
         }
         
@@ -175,7 +175,7 @@ this.ScenarioInitialize(scenarioInfo);
         public void RegisterWithDuplicateUserInformation_Variant3()
         {
 #line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "11111111", "11111111", "InvalidPasswordException", ((string[])(null)));
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "Te@1111", "Te@1111", "minimum password length", ((string[])(null)));
 #line hidden
         }
         
@@ -184,13 +184,22 @@ this.ScenarioInitialize(scenarioInfo);
         public void RegisterWithDuplicateUserInformation_Variant4()
         {
 #line 9
- this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "A1111111", "A1111111", "InvalidPasswordException", ((string[])(null)));
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "11111111", "11111111", "InvalidPasswordException", ((string[])(null)));
 #line hidden
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 5", new string[] {
                 "Negative"}, SourceLine=15)]
         public void RegisterWithDuplicateUserInformation_Variant5()
+        {
+#line 9
+ this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "A1111111", "A1111111", "InvalidPasswordException", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Register with duplicate user information, Variant 6", new string[] {
+                "Negative"}, SourceLine=15)]
+        public void RegisterWithDuplicateUserInformation_Variant6()
         {
 #line 9
  this.RegisterWithDuplicateUserInformation("Anu4", "Anu4", "RAdha4", "a1111111", "a1111111", "InvalidPasswordException", ((string[])(null)));

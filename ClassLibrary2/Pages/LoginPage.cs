@@ -14,12 +14,13 @@ namespace BuggyCarsRating.Pages
         public IWebElement UsernameField => driver.FindElement(By.Name("login"));
         public IWebElement PasswordField => driver.FindElement(By.Name("password"));
         public IWebElement SubmitButton => driver.FindElement(By.XPath("//button[@type='submit'][text()='Login']"));
-
+        public IWebElement SuccessLogin => driver.FindElement(By.XPath("//span[contains(text(),'Hi')]"));
+        
         public LoginPage(IWebDriver driver) : base(driver)
         {
         }
 
-        public void enterDetails(string user, string password)
+        public void EnterDetails(string user, string password)
         {
             UsernameField.SendKeys(user);
             PasswordField.SendKeys(password);

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
+using TechTalk.SpecFlow.CommonModels;
 
 namespace ClassLibrary2.Pages
 {
@@ -19,7 +20,8 @@ namespace ClassLibrary2.Pages
         public IWebElement PasswordField => driver.FindElement(By.Id("password"));
         public IWebElement ConfirmPasswordField => driver.FindElement(By.Id("confirmPassword"));
         public IWebElement RegisterButton => driver.FindElement(By.XPath("//button[@type='submit'][text()='Register']"));
-        public IWebElement RegistrationSuccessMessage => driver.FindElement(By.XPath("//div[contains(text(),'Registration is successful')]"));
+        //public IWebElement RegistrationSuccessMessage => driver.FindElement(By.XPath("//div[contains(text(),'Registration is successful')]"));
+        public IWebElement RegistrationSuccessMessage => driver.FindElement(By.XPath("//div[@class='result alert alert-success']"));
         public IWebElement RegistrationFailMessage => driver.FindElement(By.XPath("//div[@class='result alert alert-danger']"));
    //     public IWebElement RegistrationFailMessage => driver.FindElement(By.XPath("//div[text()[contains(.,'InvalidPasswordException')]]"));
         public RegistrationPage(IWebDriver driver) : base(driver)
@@ -33,14 +35,11 @@ namespace ClassLibrary2.Pages
             FirstNameField.SendKeys(first);
             LastNameField.SendKeys(last);
             PasswordField.SendKeys(password);
-            ConfirmPasswordField.SendKeys(confirmpassword);
+            ConfirmPasswordField.SendKeys(confirmpassword + Keys.Enter);
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@type='submit'][text()='Register']")));
             RegisterButton.Click();
         }
-        //public void LoginErrorMessage()
-        //{
-        //    return isElementExist(By.xpath("//div[text()[contains(.,'InvalidPasswordException')]]"));
-        //}
+       
     }
 }
